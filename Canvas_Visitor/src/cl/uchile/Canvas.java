@@ -18,48 +18,28 @@ public class Canvas {
 		figuras.add(f);
 	}
 	
-	public String print(Collection<Figura> f){
-		GraphicsVisitor visitor = new PrintVisitor();
-		for(Figura fig : f){
-			fig.accept(visitor);
+	public void accept(GraphicsVisitor v){
+		for(Figura fig : this.getFiguras()){
+			fig.accept(v);
 		}
-		return ((PrintVisitor) visitor).printElements();
+	}
+	
+	public String print(Collection<Figura> f){
+		PrintVisitor visitor = new PrintVisitor();
+		this.accept(visitor);
+		return visitor.printElements();
 	}
 	
 	public int totalFiguras(Collection<Figura> f){
-		GraphicsVisitor visitor = new CountVisitor();
-		for(Figura fig : f){
-			fig.accept(visitor);
-		}
-		return ((CountVisitor) visitor).totalFiguras();
+		CountVisitor visitor = new CountVisitor();
+		this.accept(visitor);
+		return visitor.totalFiguras();
 	}
 	
 	public int totalCirculos(Collection<Figura> f){
-		GraphicsVisitor visitor = new CountVisitor();
-		for(Figura fig : f){
-			fig.accept(visitor);
-		}
-		return ((CountVisitor) visitor).totalCirculos();
+		CountVisitor visitor = new CountVisitor();
+		this.accept(visitor);
+		return visitor.totalCirculos();
 	}
-	
-	/*
-	public static void main(String[] args) {
-		
-		visitor = new CountVisitor();
-		visitor2 = new PrintVisitor();
-		figuras.add(new Circulo());
-		figuras.add(new Circulo());
-		figuras.add(new Cuadrado());
-		figuras.add(new Cuadrado());
-		figuras.add(new Cuadrado());
-		figuras.add(new Elipse());
-		for(Figura fig : figuras){
-			fig.accept(visitor);
-			fig.accept(visitor2);
-		}
-		System.out.println(((PrintVisitor) visitor2).printElements());
-		System.out.println(((CountVisitor) visitor).totalFiguras());
-		System.out.println(((CountVisitor) visitor).totalCirculos());
-	}
-*/
+
 }
