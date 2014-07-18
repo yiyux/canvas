@@ -17,7 +17,7 @@ public class TestCanvas {
 		canvas = new Canvas();
 		canvas.add(new Circulo());
 		canvas.add(new Cuadrado());
-		canvas.add(new Elipse());
+		canvas.add(new Ellipse());
 		totalCirculos = canvas.totalCirculos(canvas.getFiguras());
 		totalFiguras = canvas.totalFiguras(canvas.getFiguras());
 	}

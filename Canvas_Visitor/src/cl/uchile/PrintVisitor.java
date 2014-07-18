@@ -3,17 +3,17 @@ package cl.uchile;
 public class PrintVisitor extends GraphicsVisitor {
 	private String list;
 	@Override
-	public void visit(Circulo ci) {
+	public void visitCirculo(Circulo ci) {
 			list += ci.getClass().getName().toUpperCase() + " ";		
 	}
 
 	@Override
-	public void visit(Cuadrado cu) {
+	public void visitCuadrado(Cuadrado cu) {
 			list += cu.getClass().getName().toUpperCase() + " ";
 	}
 
 	@Override
-	public void visit(Elipse e) {
+	public void visitEllipse(Ellipse e) {
 			list += e.getClass().getName().toUpperCase() + " ";
 	}
 

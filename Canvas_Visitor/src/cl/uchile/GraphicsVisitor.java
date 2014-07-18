@@ -1,7 +1,7 @@
 package cl.uchile;
 
 public abstract class GraphicsVisitor {
-	public abstract void visit(Circulo ci);
-	public abstract void visit(Cuadrado cu);
-	public abstract void visit(Elipse e);
+	public abstract void visitCirculo(Circulo ci);
+	public abstract void visitCuadrado(Cuadrado cu);
+	public abstract void visitEllipse(Ellipse e);
 }
