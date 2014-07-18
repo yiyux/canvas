@@ -24,9 +24,10 @@ public class TestCanvas {
 
 	@Test
 	public void test() {
-		assertEquals(new Integer(1), new Integer(totalCirculos));
-		assertEquals(new Integer(3), new Integer(totalFiguras));
+		assertEquals(1, totalCirculos);
+		assertEquals(3, totalFiguras);
 		assertNotNull(canvas.print(canvas.getFiguras()));
+		System.out.println(canvas.print(canvas.getFiguras()));
 	}
 
 }
