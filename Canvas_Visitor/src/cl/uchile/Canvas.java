@@ -1,27 +1,29 @@
 package cl.uchile;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class Canvas {
-	private static Collection<Figura> figuras;
+	private Group grupo;
 	
 	public Canvas(){
-		figuras = new ArrayList<Figura>();
+		grupo = new Group();
 	}
 	
 	public Collection<Figura> getFiguras(){
-		return figuras;
+		return grupo.getFiguras();
 	}
 	
-	public void add(Figura f){
-		figuras.add(f);
+	public void add(IGroup f){
+		if(f.isFigura()){
+			grupo.addFigura((Figura)f);
+		}
+		if(f.isGroup()){
+			grupo.addGroup((Group)f);
+		}
 	}
 	
 	public void accept(GraphicsVisitor v){
-		for(Figura fig : this.getFiguras()){
-			fig.accept(v);
-		}
+			grupo.accept(v);
 	}
 	
 	public String print(Collection<Figura> f){
